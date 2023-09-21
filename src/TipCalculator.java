@@ -10,7 +10,13 @@ public class TipCalculator
         System.out.print("How many people are in your group? ");
         int people = scan.nextInt();
 
-        System.out.println("Enter the tip percentage (0-100)");
+        System.out.print("Enter the tip percentage (0-100) ");
+        int tipPercent = scan.nextInt();
+        if (tipPercent > 100)
+        {
+            System.out.println("Input invalid. Please try again.");
+        }
+
 
     }
 
