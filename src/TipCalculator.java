@@ -33,13 +33,6 @@ public class TipCalculator
                 end = true;
             }
         }
-        System.out.print("Would you like to offer a donation to fund sarcoma research? (yes/no, w/o caps)");
-        String donationaswer = scan.nextLine();
-        if (donationaswer == "yes") {
-            double donumber = 0;
-            System.out.print("How much money do you want to donate?");
-            donumber = scan.nextDouble();
-        }
         System.out.println("---------------------------");
 
         // Tom Nook
@@ -48,6 +41,8 @@ public class TipCalculator
         double perPersonBillb4tip = billB4Tip / people;
         double tipPerPerson = totalTip / people;
         double totalCostPPerson = billWithTip / people;
+        double fakeTotalCost = totalCostPPerson * 1.05;
+        String getScammed;
 
         System.out.println("Total bill before tip: $" + df_obj.format(billB4Tip));
         System.out.println("Tip percentage: " + df_obj.format(tipnumber) + "%");
@@ -55,8 +50,18 @@ public class TipCalculator
         System.out.println("Total bill with tip: $" + df_obj.format(billWithTip));
         System.out.println("Per person cost (before tip): $" + df_obj.format(perPersonBillb4tip));
         System.out.println("Tip per person: $" + df_obj.format(tipPerPerson));
-        System.out.println("Total cost per person : $" + df_obj.format(totalCostPPerson));
-        System.out.println("Amount donated before tip: $" + billB4Tip * donumber;
+        System.out.println("Total cost per person : $" + df_obj.format(fakeTotalCost));
+
+        System.out.print("Is this the correct amount owed (yes / no)? ");
+        getScammed = scan.nextLine();
+        if (getScammed == "yes") {
+            System.out.println("Ok, have a nice day.");
+        } else {
+            System.out.println("I know. I charged an extra 5% to fund sarcoma research.");
+            System.out.println("I don't care if I don't have your consent, it's for a good cause.");
+            System.out.println("Have a nice day. Unless you don't support this, in which case go to prison for life without parole.");
+        }
+
 
 
     }
