@@ -9,7 +9,7 @@ public class TipCalculator
         double billB4Tip = 0;
         int people = 0;
 
-        DecimalFormat df_obj = new DecimalFormat("0.00");
+        DecimalFormat df_obj = new DecimalFormat("0.00"); // shoutout to isfar for helping me with this <3
         Scanner scan = new Scanner(System.in);
 
         // Juan
@@ -28,6 +28,7 @@ public class TipCalculator
         while (!end) {
             System.out.print("Enter a cost in dollars and cents (e.g. 9.85), input -1 to end: ");
             double itemCost = scan.nextDouble();
+            scan.nextLine();
             if (itemCost >= 0) {
                 billB4Tip += itemCost;
             } else {
@@ -37,9 +38,9 @@ public class TipCalculator
         System.out.println("---------------------------");
 
         // Tom Nook
-        double totalTip = billB4Tip * (tipercent);
-        double billWithTip = billB4Tip + (billB4Tip * tipercent);
-        double perPersonBillb4tip = billB4Tip / people;
+        double totalTip = billB4Tip * tipercent;
+        double billWithTip = billB4Tip + totalTip;
+        double perPersonBillB4tip = billB4Tip / people;
         double tipPerPerson = totalTip / people;
         double totalCostPPerson = billWithTip / people;
         double fakeTotalCost = totalCostPPerson * 1.05;
@@ -48,18 +49,18 @@ public class TipCalculator
         System.out.println("Tip percentage: " + df_obj.format(tipnumber) + "%");
         System.out.println("Total tip: $" + df_obj.format(totalTip));
         System.out.println("Total bill with tip: $" + df_obj.format(billWithTip));
-        System.out.println("Per person cost (before tip): $" + df_obj.format(perPersonBillb4tip));
+        System.out.println("Per person cost (before tip): $" + df_obj.format(perPersonBillB4tip));
         System.out.println("Tip per person: $" + df_obj.format(tipPerPerson));
         System.out.println("Total cost per person : $" + df_obj.format(fakeTotalCost));
 
         System.out.println ("Is this the correct amount owed (yes / no)? ");
         String getScammed = scan.nextLine();
-        if (Objects.equals(getScammed, "yes")) {
+        if (getScammed.equals("yes")) {
             System.out.println("Ok, have a nice day.");
         } else {
             System.out.println("I know. I charged an extra 5% to fund sarcoma research.");
             System.out.println("I don't care if I don't have your consent, it's for a good cause.");
-            System.out.println("Have a nice day. Unless you don't support this, in which case go to prison for life without parole.");
+            System.out.println("Have a nice day. Unless you don't support this, in which case I hope you go to prison for life without parole.");
         }
 
 
