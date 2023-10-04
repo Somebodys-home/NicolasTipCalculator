@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -42,7 +43,6 @@ public class TipCalculator
         double tipPerPerson = totalTip / people;
         double totalCostPPerson = billWithTip / people;
         double fakeTotalCost = totalCostPPerson * 1.05;
-        String getScammed;
 
         System.out.println("Total bill before tip: $" + df_obj.format(billB4Tip));
         System.out.println("Tip percentage: " + df_obj.format(tipnumber) + "%");
@@ -52,9 +52,9 @@ public class TipCalculator
         System.out.println("Tip per person: $" + df_obj.format(tipPerPerson));
         System.out.println("Total cost per person : $" + df_obj.format(fakeTotalCost));
 
-        System.out.print("Is this the correct amount owed (yes / no)? ");
-        getScammed = scan.nextLine();
-        if (getScammed == "yes") {
+        System.out.println ("Is this the correct amount owed (yes / no)? ");
+        String getScammed = scan.nextLine();
+        if (Objects.equals(getScammed, "yes")) {
             System.out.println("Ok, have a nice day.");
         } else {
             System.out.println("I know. I charged an extra 5% to fund sarcoma research.");
